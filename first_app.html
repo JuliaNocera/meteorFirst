@@ -1,0 +1,30 @@
+<head>
+  <title>first_app</title>
+</head>
+
+<body>
+  <h1>Welcome to Meteor!</h1>
+
+  {{> commentList}}
+</body>
+
+<template name="commentList">
+  <h1>Flack</h1>
+  	<ul>
+	  	{{#each comments}}   <!-- Meteor (f)unction does a thing for each comment in array returned from comments() function defined in <app-name>.js   // takes a function or array arg but function arg is clearer and can be called later-->
+	  		<li>
+					<div>
+						{{login}}  		<!-- property -->
+					</div>
+					<div>
+						{{timestamp}} <!-- property -->
+					</div>  	
+					<div>
+						{{comment}}		<!-- property -->
+					</div>		
+	  		</li>
+	  	{{else}}						<!-- if array comments() returns is empty, the below will print to DOM -->
+	  		<li>Sorry, no comments yet.</li>
+		  {{/each}}	
+  	</ul>
+</template>
