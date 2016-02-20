@@ -1,23 +1,13 @@
+Comments = new Mongo.Collection('comments'); // name a new collection 
+
 if (Meteor.isClient) {
   // counter starts at 0
   Session.setDefault('counter', 0);
 
-  Template.commentList.helpers({     
+  Template.CommentList.helpers({     
     comments: function() {           
-      return [
-      {
-        timestamp: new Date,         // d  (  data
-        login: 'Jewels',             // a   container )
-        room: 'main',                // t
-        comment: 'First Comment'     // a
-      },
-      {
-        timestamp: new Date, 
-        login: 'Jewels',
-        room: 'main',
-        comment: 'Second Comment'
-      }
-      ]
+      return Comments.find();
+                          // cursor is like a reg js obj so you can call functions on it
     }
   })
 }

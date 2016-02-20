@@ -5,10 +5,11 @@
 <body>
   <h1>Welcome to Meteor!</h1>
 
-  {{> commentList}}
+  {{> CommentList}}
+  {{> CommentAdd}}
 </body>
 
-<template name="commentList">
+<template name="CommentList">
   <h1>Flack</h1>
   	<ul>
 	  	{{#each comments}}   <!-- Meteor (f)unction does a thing for each comment in array returned from comments() function defined in <app-name>.js   // takes a function or array arg but function arg is clearer and can be called later-->
@@ -28,3 +29,14 @@
 		  {{/each}}	
   	</ul>
 </template>
+
+<template name="CommentAdd">
+	<form>
+		<input type="text" name="comment" autofocus placeholder-"Add a comment..."/>
+		<input type="submit" value="Add"/>
+	</form>
+</template>
+
+
+
+
